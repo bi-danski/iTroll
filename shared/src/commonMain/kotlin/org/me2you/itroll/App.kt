@@ -1,4 +1,4 @@
-package org.me2you.tvtroll
+package org.me2you.itroll
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -15,9 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import org.jetbrains.compose.resources.painterResource
-
-import tvtroll.shared.generated.resources.Res
-import tvtroll.shared.generated.resources.compose_multiplatform
+//import itroll.shared.generated.resources.Res
+//import itroll.shared.generated.resources.compose_multiplatform
 
 @Composable
 @Preview
@@ -40,7 +39,7 @@ fun App() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
+//                    Image(painterResource(Res.drawable.compose_multiplatform), null)
                     Text("Compose: $greeting")
                 }
             }

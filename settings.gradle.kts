@@ -1,4 +1,4 @@
-rootProject.name = "TvTroll"
+rootProject.name = "iTroll"
 
 pluginManagement {
     repositories {

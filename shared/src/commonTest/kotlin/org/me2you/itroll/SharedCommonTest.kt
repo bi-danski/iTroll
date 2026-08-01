@@ -1,9 +1,9 @@
-package org.me2you.tvtroll
+package org.me2you.itroll
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SharedLogicIOSTest {
+class SharedCommonTest {
 
     @Test
     fun example() {

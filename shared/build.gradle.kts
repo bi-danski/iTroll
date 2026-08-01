@@ -21,7 +21,7 @@ kotlin {
     }
     
     android {
-       namespace = "org.me2you.tvtroll.shared"
+       namespace = "org.me2you.itroll.shared"
        compileSdk = libs.versions.android.compileSdk.get().toInt()
        minSdk = libs.versions.android.minSdk.get().toInt()
     
@@ -34,11 +34,10 @@ kotlin {
        withHostTest {
            isIncludeAndroidResources = true
        }
-       withDeviceTestBuilder {
-           sourceSetTreeName = "test"
-       }.configure {
-           instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-       }
+       withDeviceTestBuilder { sourceSetTreeName = "test" }
+           .configure {
+               instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+           }
     }
 
     sourceSets {
