@@ -24,8 +24,6 @@ class MainActivity : ComponentActivity() {
         val exoPlayer = ExoPlayer.Builder(this@MainActivity).build()
         val castPlayer = CastPlayer.Builder(this@MainActivity).setLocalPlayer(exoPlayer).build()
 
-
-
 //        mediaSession = MediaSession.//.Builder(this@MainActivity, castPlayer).build()
         setContent {
             App()
