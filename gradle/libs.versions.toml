@@ -1,5 +1,5 @@
 [versions]
-agp = "9.3.0"
+agp = "9.3.1"
 android-compileSdk = "37"
 android-minSdk = "24"
 #noinspection OldTargetApi
@@ -20,7 +20,7 @@ datastorePreferences = "1.2.1"
 coreSplashScreen = "1.2.0"
 coil-compose = "3.5.0"
 material-icons = "1.7.3"
-navigation3-runtime = "1.1.4"
+navigation3-runtime = "1.1.5"
 navigation3-ui = "1.1.1"
 lifecycle-viewmodel-navigation3 = "2.11.0"
 desugar_jdk_libs = "2.1.5"
