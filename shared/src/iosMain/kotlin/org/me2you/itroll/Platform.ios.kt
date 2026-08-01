@@ -1,4 +1,4 @@
-package org.me2you.tvtroll
+package org.me2you.itroll
 
 import platform.UIKit.UIDevice
 

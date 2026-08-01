@@ -20,7 +20,7 @@ dependencies {
 }
 
 android {
-    namespace = "org.me2you.tvtroll"
+    namespace = "org.me2you.itroll"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

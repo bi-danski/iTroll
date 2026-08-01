@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		36D1EFE5F7FADED5E8B89054 /* TvTroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvTroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36D1EFE5F7FADED5E8B89054 /* iTroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvTroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */

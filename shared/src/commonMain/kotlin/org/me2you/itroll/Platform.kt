@@ -1,4 +1,4 @@
-package org.me2you.tvtroll
+package org.me2you.itroll
 
 interface Platform {
     val name: String
