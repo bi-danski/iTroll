@@ -1,4 +1,4 @@
-package org.me2you.itroll
+package org.me2you.itroll.core.platform
 
 import android.os.Build
 
