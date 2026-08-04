@@ -52,6 +52,11 @@ kotlin {
             implementation(libs.androidx.core.splashscreen)
             implementation(libs.androidx.datastore.preferences)
             implementation(libs.ktor.client.okhttp)
+
+            implementation(libs.androidx.media3.cast)
+            implementation(libs.androidx.media3.ui)
+            implementation(libs.androidx.media3.exoplayer)
+            implementation(libs.androidx.media3.session)
         }
 
         iosMain.dependencies {
@@ -87,10 +92,6 @@ kotlin {
 
             implementation(libs.androidx.datastore.preferences)
             implementation(libs.androidx.datastore.core.okio)
-            implementation(libs.androidx.media3.cast)
-            implementation(libs.androidx.media3.ui)
-            implementation(libs.androidx.media3.exoplayer)
-            implementation(libs.androidx.media3.session)
 
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.auth)

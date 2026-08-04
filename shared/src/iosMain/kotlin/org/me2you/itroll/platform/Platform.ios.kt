@@ -1,4 +1,4 @@
-package org.me2you.itroll.core.platform
+package org.me2you.itroll.platform
 
 import platform.UIKit.UIDevice
 

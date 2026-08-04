@@ -1,0 +1,134 @@
+package org.me2you.itroll.root.view.components
+
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Cast
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import org.me2you.itroll.root.mock.MockRootData
+import org.me2you.itroll.root.state.CastDeviceUi
+import org.me2you.itroll.ui.theme.Blue600
+import org.me2you.itroll.ui.theme.Green600
+import org.me2you.itroll.ui.theme.iTrollTheme
+
+@Composable
+fun RootCastCard(
+    availableDeviceCount: Int,
+    recentDevices: List<CastDeviceUi>,
+    onCardClick: () -> Unit,
+    onQuickConnectClick: (CastDeviceUi) -> Unit,
+) {
+    Card(
+        onClick = onCardClick,
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        shape = RoundedCornerShape(16.dp),
+    ) {
+        Column(modifier = Modifier.padding(20.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.Top,
+            ) {
+                RootIconBadge(
+                    icon = Icons.Filled.Cast,
+                    background = MaterialTheme.colorScheme.primaryContainer,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                )
+                if (availableDeviceCount > 0) {
+                    Surface(
+                        shape = RoundedCornerShape(20.dp),
+                        color = Blue600.copy(0.05f), //MaterialTheme.colorScheme.tertiaryContainer,
+                    ) {
+                        Text(
+                            text = "$availableDeviceCount Available",
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Green600, //MaterialTheme.colorScheme.onTertiaryContainer,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                        )
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(12.dp))
+            Text(
+                text = "Cast",
+                style = MaterialTheme.typography.titleLarge
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                text = "Find and connect to nearby devices",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+
+            if (recentDevices.isNotEmpty()) {
+                Spacer(Modifier.height(14.dp))
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    recentDevices.forEach { device ->
+                        ConnectChip(
+                            device = device,
+                            onClick = { onQuickConnectClick(device) }
+                        )
+                    }
+                }
+            }
+            Spacer(Modifier.height(6.dp))
+
+            Box(modifier = Modifier
+                .padding(bottom = 0.dp)
+                .align(alignment = Alignment.End)){
+                Surface(
+                    shape = RoundedCornerShape(20.dp),
+                    color = MaterialTheme.colorScheme.tertiaryContainer,
+                ) {
+                    Text(
+                        text = "View All",
+                        style = MaterialTheme.typography.labelSmall,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onTertiaryContainer,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewRootCastCard(){
+    iTrollTheme {
+        RootCastCard(
+            MockRootData.rootUiState.availableDeviceCount,
+            MockRootData.rootUiState.recentDevices,
+            {},
+            {}
+        )
+    }
+}
