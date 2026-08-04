@@ -22,26 +22,14 @@ import org.me2you.itroll.root.utils.toIcon
 import org.me2you.itroll.ui.theme.iTrollTheme
 
 @Composable
-fun ConnectChip(
-    device: CastDeviceUi,
-    selected: Boolean = false,
-    onClick: () -> Unit,
-) {
+fun ConnectChip(device: CastDeviceUi, selected: Boolean = false, onConnect: () -> Unit) {
     Surface(
-        onClick = onClick,
+        onClick = onConnect,
         shape = RoundedCornerShape(20.dp),
-        color = if (selected) {
-            MaterialTheme.colorScheme.primaryContainer
-        } else {
-            MaterialTheme.colorScheme.surface
-        },
+        color = if (selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface,
         border = BorderStroke(
             width = if (selected) 1.5.dp else 1.dp,
-            color = if (selected) {
-                MaterialTheme.colorScheme.primary
-            } else {
-                MaterialTheme.colorScheme.outlineVariant
-            },
+            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outlineVariant
         ),
         shadowElevation = if (selected) 4.dp else 0.dp,
         tonalElevation = if (selected) 2.dp else 0.dp,
@@ -55,21 +43,13 @@ fun ConnectChip(
                 imageVector = device.kind.toIcon(),
                 contentDescription = null,
                 modifier = Modifier.size(14.dp),
-                tint = if (selected) {
-                    MaterialTheme.colorScheme.onPrimaryContainer
-                } else {
-                    MaterialTheme.colorScheme.onSurfaceVariant
-                },
+                tint = if (selected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant
             )
             Text(
                 text = device.name,
                 style = MaterialTheme.typography.labelMedium,
                 fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
-                color = if (selected) {
-                    MaterialTheme.colorScheme.onPrimaryContainer
-                } else {
-                    MaterialTheme.colorScheme.onSurface
-                },
+                color = if (selected)  MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurface
             )
         }
     }
@@ -79,6 +59,6 @@ fun ConnectChip(
 @Composable
 fun PreviewConnectChip(){
     iTrollTheme {
-        ConnectChip(MockRootData.rootUiState.recentDevices.first(), onClick = {})
+        ConnectChip(MockRootData.rootUiState.recentDevices.first(), onConnect = {})
     }
 }

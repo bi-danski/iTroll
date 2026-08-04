@@ -4,7 +4,6 @@ import org.me2you.itroll.root.state.CastDeviceKind
 import org.me2you.itroll.root.state.CastDeviceUi
 import org.me2you.itroll.root.state.NowPlayingUi
 import org.me2you.itroll.root.state.RootUiState
-import kotlin.random.Random
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
