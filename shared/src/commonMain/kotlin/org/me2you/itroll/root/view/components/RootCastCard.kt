@@ -2,7 +2,6 @@ package org.me2you.itroll.root.view.components
 
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,8 +12,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cast
+import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -61,23 +63,45 @@ fun RootCastCard(
                     background = MaterialTheme.colorScheme.primaryContainer,
                     tint = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
-                if (availableDeviceCount > 0) {
-                    Surface(
-                        shape = RoundedCornerShape(20.dp),
-                        color = Blue600.copy(0.05f), //MaterialTheme.colorScheme.tertiaryContainer,
-                    ) {
-                        Text(
-                            text = "$availableDeviceCount Available",
-                            style = MaterialTheme.typography.labelSmall,
-                            fontWeight = FontWeight.SemiBold,
-                            color = Green600, //MaterialTheme.colorScheme.onTertiaryContainer,
-                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                Column(
+                    horizontalAlignment = Alignment.End,
+                    verticalArrangement = Arrangement.Top
+                ) {
+                    Row { //(horizontalArrangement = Arrangement.spacedBy(3.dp)) {
+                        Icon(
+                            modifier = Modifier
+//                                .size(18.dp)
+                                .padding(10.dp),
+                            imageVector = Icons.Filled.Refresh,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
+                        Icon(
+                            modifier = Modifier.padding(10.dp),
+                            imageVector = Icons.Filled.ChevronRight,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    if (availableDeviceCount > 0) {
+                        Surface(
+                            shape = RoundedCornerShape(20.dp),
+                            color = Blue600.copy(0.05f), //MaterialTheme.colorScheme.tertiaryContainer,
+                        ) {
+                            Text(
+                                text = "$availableDeviceCount Available",
+                                style = MaterialTheme.typography.labelSmall,
+                                fontWeight = FontWeight.SemiBold,
+                                color = Green600, //MaterialTheme.colorScheme.onTertiaryContainer,
+                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                            )
+                        }
+
                     }
                 }
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(8.dp))
             Text(
                 text = "Cast",
                 style = MaterialTheme.typography.titleLarge
@@ -114,24 +138,9 @@ fun RootCastCard(
                     )
                 }
             }
-            Spacer(Modifier.height(6.dp))
+//            Spacer(Modifier.height(6.dp))
 
-            Box(modifier = Modifier
-                .padding(bottom = 0.dp)
-                .align(alignment = Alignment.End)){
-                Surface(
-                    shape = RoundedCornerShape(20.dp),
-                    color = MaterialTheme.colorScheme.tertiaryContainer,
-                ) {
-                    Text(
-                        text = "View All",
-                        style = MaterialTheme.typography.labelSmall,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.onTertiaryContainer,
-                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
-                    )
-                }
-            }
+
         }
     }
 }

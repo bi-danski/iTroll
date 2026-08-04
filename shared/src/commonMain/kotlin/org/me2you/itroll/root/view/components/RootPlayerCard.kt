@@ -29,8 +29,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.me2you.itroll.root.mock.MockRootData
 import org.me2you.itroll.root.state.NowPlayingUi
+import org.me2you.itroll.ui.theme.iTrollTheme
 
 @Composable
 fun RootPlayerCard(
@@ -143,5 +146,19 @@ fun RootPlayerCard(
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewRootPlayerCard(){
+    iTrollTheme {
+        RootPlayerCard(
+            MockRootData.rootUiState.nowPlaying,
+            {},
+            {},
+            {},
+            {}
+        )
     }
 }
