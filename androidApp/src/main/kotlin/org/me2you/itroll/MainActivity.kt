@@ -12,11 +12,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.OptIn
 import androidx.media3.common.util.UnstableApi
+import org.me2you.itroll.root.mock.MockRootData
+import org.me2you.itroll.root.state.RootUiState
 import org.me2you.itroll.ui.theme.iTrollTheme
-import org.me2you.itroll.root.view.CastDeviceKind
-import org.me2you.itroll.root.view.CastDeviceUi
-import org.me2you.itroll.root.view.NowPlayingUi
-import org.me2you.itroll.root.view.RootUiState
 import org.me2you.itroll.root.view.RootView
 
 class MainActivity : ComponentActivity() {
@@ -28,21 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             iTrollTheme {
                 RootView(
-                    uiState = RootUiState(
-                        isConnected = true,
-                        connectedDeviceName = "Living room TV",
-                        availableDeviceCount = 3,
-                        recentDevices = listOf(
-                            CastDeviceUi("1", "Living room", CastDeviceKind.TV),
-                            CastDeviceUi("2", "Kitchen hub", CastDeviceKind.SPEAKER),
-                            CastDeviceUi("3", "Office PC", CastDeviceKind.LAPTOP),
-                        ),
-                        nowPlaying = NowPlayingUi(
-                            title = "Midnight echoes",
-                            subtitle = "Paused · 02:14 / 03:40",
-                            isPlaying = false,
-                        ),
-                    ),
+                    uiState = MockRootData.rootUiState,
                     onCastCardClick = {},
                     onPlayerCardClick = {},
                     onQuickConnectClick = {},
