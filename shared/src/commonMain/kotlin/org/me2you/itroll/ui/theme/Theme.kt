@@ -3,7 +3,6 @@ package org.me2you.itroll.ui.theme
 import androidx.compose.foundation.IndicationNodeFactory
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.interaction.InteractionSource
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -13,7 +12,7 @@ import androidx.compose.ui.node.DelegatableNode
 @Composable
 fun iTrollTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = if (isSystemInDarkTheme()) ITrollDarkColorScheme else ITrollLightColorScheme,
+        colorScheme = ITrollDarkColorScheme,//if (isSystemInDarkTheme()) ITrollDarkColorScheme else ITrollLightColorScheme,
         typography = iTrollTypography
     ) {
         CompositionLocalProvider(LocalIndication provides TouchRipples) {
