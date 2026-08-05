@@ -57,8 +57,8 @@ val ITrollDarkColorScheme: ColorScheme = darkColorScheme(
     tertiaryContainer = Purple600,
     onTertiaryContainer = Purple50,
 
-    secondaryContainer = Green600,
-    onSecondaryContainer = Green50,
+    secondaryContainer = Green50, //Green600,
+    onSecondaryContainer = Green600, //Green50
 
     error = Amber500,
 

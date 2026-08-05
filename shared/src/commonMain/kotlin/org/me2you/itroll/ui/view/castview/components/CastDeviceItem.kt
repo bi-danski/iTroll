@@ -36,7 +36,7 @@ import org.me2you.itroll.ui.theme.iTrollTheme
 fun CastDeviceItem(device: CastDeviceUi, onConnectClick: () -> Unit) {
     Surface(
         shape = RoundedCornerShape(14.dp),
-        color = MaterialTheme.colorScheme.surfaceContainer,
+        color = MaterialTheme.colorScheme.surfaceContainer.copy(0.15f),
         modifier = Modifier.fillMaxWidth(),
     ) {
         Row(

@@ -19,6 +19,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.me2you.itroll.ui.navigation.RootNavigator
@@ -43,10 +44,10 @@ fun CastView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
                         )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.surface),
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent) //MaterialTheme.colorScheme.surface),
             )
         },
-        containerColor = MaterialTheme.colorScheme.surface,
+//        containerColor = MaterialTheme.colorScheme.surface,
     ) { innerPadding ->
         if (rootUiState.recentDevices.isEmpty()) NoCastDevice(modifier = Modifier.padding(innerPadding))
             else
