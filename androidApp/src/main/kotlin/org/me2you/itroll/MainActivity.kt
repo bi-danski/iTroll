@@ -1,11 +1,5 @@
 package org.me2you.itroll
 
-//import android.media.session.MediaSession
-//import android.media.session.MediaSessionManager
-//import android.support.v4.media.session.MediaSessionCompat
-//import androidx.compose.runtime.Composable
-//import androidx.compose.ui.tooling.preview.Preview
-//import androidx.media3.
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
