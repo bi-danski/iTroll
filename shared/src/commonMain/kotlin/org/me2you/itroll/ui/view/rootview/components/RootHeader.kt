@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun RootHeader(onProfileClick: () -> Unit) {
+fun RootHeader(onInfoClick: () -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -35,7 +35,7 @@ fun RootHeader(onProfileClick: () -> Unit) {
             color = MaterialTheme.colorScheme.primaryContainer,
             modifier = Modifier.size(36.dp),
         ) {
-            IconButton(onClick = onProfileClick) {
+            IconButton(onClick = onInfoClick) {
                 Icon(
                     imageVector = Icons.Filled.Info,
                     contentDescription = null,

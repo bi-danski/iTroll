@@ -49,7 +49,9 @@ fun RootPlayerCard(
     Card(
         onClick = onCardClick,
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainer.copy(0.15f)
+        ),
         shape = RoundedCornerShape(16.dp),
     ) {
         Column(modifier = Modifier.padding(20.dp)) {

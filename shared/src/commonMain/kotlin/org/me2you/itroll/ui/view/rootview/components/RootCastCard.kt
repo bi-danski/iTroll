@@ -13,7 +13,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cast
-import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -50,7 +49,9 @@ fun RootCastCard(
     Card(
         onClick = onCardClick,
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainer.copy(0.15f)
+        ),
         shape = RoundedCornerShape(16.dp),
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
@@ -77,14 +78,14 @@ fun RootCastCard(
                             contentDescription = "Refresh Devices",
                             tint = MaterialTheme.colorScheme.tertiary.copy(0.5f)
                         )
-                        Icon(
-                            modifier = Modifier
-                                .clickable(onClick = {})
-                                .padding(4.dp),
-                            imageVector = Icons.Filled.ChevronRight,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
+//                        Icon(
+//                            modifier = Modifier
+//                                .clickable(onClick = {})
+//                                .padding(4.dp),
+//                            imageVector = Icons.Filled.ChevronRight,
+//                            contentDescription = null,
+//                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+//                        )
                     }
                     if (availableDeviceCount > 0) {
                         Surface(

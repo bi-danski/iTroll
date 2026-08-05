@@ -17,32 +17,29 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.me2you.itroll.root.mock.MockRootData
-import org.me2you.itroll.root.state.CastDeviceUi
-import org.me2you.itroll.ui.theme.iTrollTheme
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.me2you.itroll.ui.navigation.RootNavigator
 import org.me2you.itroll.ui.view.castview.components.CastDeviceItem
 import org.me2you.itroll.ui.view.castview.components.NoCastDevice
+import org.me2you.itroll.vm.RootViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CastView(
-    availableDeviceCount: Int,
-    devices: List<CastDeviceUi>,
-    onBackClick: () -> Unit,
-    onConnectClick: (CastDeviceUi) -> Unit,
-) {
+fun CastView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
+    val rootUiState by rootViewModel.rootUiState.collectAsStateWithLifecycle()
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Cast") },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
+                    IconButton(onClick = { rootNavigator.popBack() }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
+                            contentDescription = null,
                         )
                     }
                 },
@@ -51,7 +48,7 @@ fun CastView(
         },
         containerColor = MaterialTheme.colorScheme.surface,
     ) { innerPadding ->
-        if (devices.isEmpty()) NoCastDevice(modifier = Modifier.padding(innerPadding))
+        if (rootUiState.recentDevices.isEmpty()) NoCastDevice(modifier = Modifier.padding(innerPadding))
             else
                 LazyColumn(
                     modifier = Modifier
@@ -62,32 +59,20 @@ fun CastView(
                 ) {
                     item {
                         Text(
-                            text = "$availableDeviceCount ${if (availableDeviceCount == 1) "device" else "devices"} available",
+                            text = "${rootUiState.availableDeviceCount} " +
+                                    "${ if (rootUiState.availableDeviceCount == 1) "device" else "devices" } available",
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             modifier = Modifier.padding(bottom = 4.dp),
                         )
                     }
 
-                    items(devices, key = { it.id }) { device ->
+                    items(rootUiState.recentDevices, key = { it.id }) { device ->
                         CastDeviceItem(
                             device = device,
-                            onConnectClick = { onConnectClick(device) },
+                            onConnectClick = { rootViewModel.onConnectClick(device) },
                         )
                     }
                 }
-    }
-}
-
-@Preview
-@Composable
-fun PreviewCastScreen() {
-    iTrollTheme {
-        CastView(
-            availableDeviceCount = MockRootData.rootUiState.availableDeviceCount,
-            devices = MockRootData.rootUiState.recentDevices,
-            onBackClick = {},
-            onConnectClick = {},
-        )
     }
 }

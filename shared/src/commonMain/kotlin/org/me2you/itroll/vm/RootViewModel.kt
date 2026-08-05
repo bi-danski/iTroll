@@ -17,11 +17,11 @@ class RootViewModel() : ViewModel() {
 
     fun onCastCardClick() {}
     fun onPlayerCardClick() {}
-    fun onQuickConnectClick(castDevice: CastDeviceUi) { }
+    fun onQuickConnectClick(castDevice: CastDeviceUi) {}
     fun onPlayPauseClick() {}
     fun onSkipNextClick() {}
     fun onSkipPreviousClick() {}
-    fun onProfileClick() {}
+    fun onConnectClick(castDevice: CastDeviceUi) {}
 
     fun updateNowPlaying(isPlaying: Boolean? = null, title: String? = null, artist: String? = null) {
         _rootUiState.update { state ->

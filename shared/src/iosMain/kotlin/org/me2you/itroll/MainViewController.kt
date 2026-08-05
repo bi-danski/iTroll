@@ -8,9 +8,9 @@ import org.me2you.itroll.ui.navigation.RootNavigator
 import org.me2you.itroll.ui.theme.iTrollTheme
 
 fun MainViewController() = ComposeUIViewController {
-    iTrollTheme {
-        val rootNavigator: RootNavigator = koinInject<RootNavigator>()
+    val rootNavigator: RootNavigator = koinInject<RootNavigator>()
 
+    iTrollTheme {
         RootNavigation(
             rootNavigator = rootNavigator,
             startRoute = Root

@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.me2you.itroll.ui.navigation.Cast
 import org.me2you.itroll.ui.navigation.RootNavigator
 import org.me2you.itroll.ui.view.rootview.components.ConnStatusBanner
 import org.me2you.itroll.ui.view.rootview.components.RootCastCard
@@ -30,9 +31,7 @@ fun RootView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
                 .padding(horizontal = 18.dp),
         ) {
             Spacer(Modifier.height(12.dp))
-            RootHeader(
-                onProfileClick = { rootViewModel.onProfileClick() }
-            )
+            RootHeader(onInfoClick = {  })
             Spacer(Modifier.height(10.dp))
 
             if (rootUiState.isConnected)
@@ -42,7 +41,7 @@ fun RootView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
             RootCastCard(
                 availableDeviceCount = rootUiState.availableDeviceCount,
                 recentDevices = rootUiState.recentDevices,
-                onCardClick = { rootViewModel.onCastCardClick() },
+                onCardClick = { rootNavigator.navigateTo(Cast) },
                 onQuickConnectClick = { rootViewModel.onQuickConnectClick(castDevice = it) },
             )
 
