@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CastConnected
-import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Devices
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Pause
@@ -65,54 +63,50 @@ fun RootPlayerCard(
                     background = MaterialTheme.colorScheme.tertiaryContainer,
                     tint = MaterialTheme.colorScheme.onTertiaryContainer,
                 )
-                Icon(
-                    imageVector = Icons.Filled.ChevronRight,
-                    contentDescription = "Open player",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+
+                Column(horizontalAlignment = Alignment.End) {
+                    Text(
+                        modifier = Modifier.padding(horizontal = 2.5.dp),
+                        text = "Now playing from",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Row(
+                        modifier = Modifier.padding(horizontal = 2.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        Icon(imageVector = rootUiState?.recentDevices?.first()?.kind?.toIcon() ?: Icons.Filled.Devices,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp),
+                            tint = MaterialTheme.colorScheme.onSecondaryContainer
+                        )
+                        Text(
+                            text = rootUiState?.recentDevices?.first()?.name ?: "unknown",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer,
+                        )
+                    }
+                }
             }
 
-            Spacer(Modifier.height(12.dp))
-            Text(
-                text = "Cast", // 2 Devices",
-                style = MaterialTheme.typography.titleLarge
-            )
             Spacer(Modifier.height(2.dp))
             Text(
-                text = "Now playing",
+                text = "Cast Media",
+                style = MaterialTheme.typography.titleLarge
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = "Browse media and cast to connected devices",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-
-            Row(
-                modifier = Modifier.padding(horizontal = 0.dp, vertical = 8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.CastConnected,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.size(16.dp),
-                )
-                Icon(imageVector = rootUiState?.recentDevices?.first()?.kind?.toIcon() ?: Icons.Filled.Devices,
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp),
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer
-                )
-                Text(
-                    text = rootUiState?.recentDevices?.first()?.name ?: "unknown",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                )
-            }
-
 
             if (rootUiState?.nowPlaying != null) {
                 Spacer(Modifier.height(12.dp))
                 Surface(
                     shape = RoundedCornerShape(14.dp),
-                    color = MaterialTheme.colorScheme.surface,
+                    color = MaterialTheme.colorScheme.surface.copy(0.7f),
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     Column(modifier = Modifier.padding(12.dp)) {

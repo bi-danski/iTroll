@@ -13,6 +13,7 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import org.koin.compose.viewmodel.koinViewModel
 import org.me2you.itroll.ui.view.castview.CastView
+import org.me2you.itroll.ui.view.playerview.PlayerView
 import org.me2you.itroll.ui.view.rootview.RootView
 import org.me2you.itroll.vm.RootViewModel
 import org.me2you.itroll.vm.rootViewModelStoreOwner
@@ -58,7 +59,12 @@ fun RootNavigation(rootNavigator: RootNavigator, startRoute: NavKey) {
                 )
             }
 
-            entry<Player> { }
+            entry<Player> {
+                PlayerView(
+                    rootNavigator = rootNavigator,
+                    rootViewModel = rootViewModel
+                )
+            }
         }
     )
 }

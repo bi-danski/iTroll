@@ -9,6 +9,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.node.DelegatableNode
 
+@Suppress( "ComposableNaming")
 @Composable
 fun iTrollTheme(content: @Composable () -> Unit) {
     MaterialTheme(

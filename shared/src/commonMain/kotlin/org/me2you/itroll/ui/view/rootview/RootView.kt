@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.me2you.itroll.ui.navigation.Cast
+import org.me2you.itroll.ui.navigation.Player
 import org.me2you.itroll.ui.navigation.RootNavigator
 import org.me2you.itroll.ui.view.rootview.components.ConnStatusBanner
 import org.me2you.itroll.ui.view.rootview.components.RootCastCard
@@ -28,7 +29,7 @@ fun RootView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(innerPadding)
-                .padding(horizontal = 18.dp),
+                .padding(horizontal = 14.dp),
         ) {
             Spacer(Modifier.height(12.dp))
             RootHeader(onInfoClick = {  })
@@ -48,7 +49,7 @@ fun RootView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
             Spacer(Modifier.height(18.dp))
             RootPlayerCard(
                 rootUiState = rootUiState,
-                onCardClick = { rootViewModel.onPlayerCardClick() },
+                onCardClick = { rootNavigator.navigateTo(Player) },
                 onPlayPauseClick = { rootViewModel.onPlayPauseClick() },
                 onSkipNextClick = { rootViewModel.onSkipNextClick() },
                 onSkipPreviousClick = { rootViewModel.onSkipPreviousClick() },

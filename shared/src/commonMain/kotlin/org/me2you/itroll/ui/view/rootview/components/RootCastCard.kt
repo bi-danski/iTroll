@@ -78,14 +78,6 @@ fun RootCastCard(
                             contentDescription = "Refresh Devices",
                             tint = MaterialTheme.colorScheme.tertiary.copy(0.5f)
                         )
-//                        Icon(
-//                            modifier = Modifier
-//                                .clickable(onClick = {})
-//                                .padding(4.dp),
-//                            imageVector = Icons.Filled.ChevronRight,
-//                            contentDescription = null,
-//                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-//                        )
                     }
                     if (availableDeviceCount > 0) {
                         Surface(
