@@ -12,8 +12,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.OptIn
 import androidx.media3.common.util.UnstableApi
-import org.me2you.itroll.root.mock.MockRootData
-import org.me2you.itroll.ui.view.rootview.RootView
+import org.koin.compose.koinInject
+import org.me2you.itroll.ui.navigation.Root
+import org.me2you.itroll.ui.navigation.RootNavigation
+import org.me2you.itroll.ui.navigation.RootNavigator
 import org.me2you.itroll.ui.theme.iTrollTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,17 +25,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+            val rootNavigator = koinInject<RootNavigator>()
+
             iTrollTheme {
-                RootView(
-                    uiState = MockRootData.rootUiState,
-                    onCastCardClick = {},
-                    onPlayerCardClick = {},
-                    onQuickConnectClick = {},
-                    onPlayPauseClick = {},
-                    onSkipNextClick = {},
-                    onSkipPreviousClick = {},
-                    onProfileClick = {},
-                )
+                RootNavigation(rootNavigator = rootNavigator, startRoute = Root)
             }
         }
     }
