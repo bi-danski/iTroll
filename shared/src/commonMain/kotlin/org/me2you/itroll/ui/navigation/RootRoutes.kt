@@ -8,7 +8,7 @@ import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 
 @Serializable data object Cast: NavKey
-@Serializable data object Notification: NavKey
+@Serializable data object Root: NavKey
 @Serializable data object Player: NavKey
 
 
@@ -17,7 +17,7 @@ val RootSaveStateConfiguration = SavedStateConfiguration {
     serializersModule = SerializersModule {
         polymorphic(NavKey::class) {
             subclass(Cast::class)
-            subclass(Notification::class)
+            subclass(Root::class)
             subclass(Player::class)
         }
     }

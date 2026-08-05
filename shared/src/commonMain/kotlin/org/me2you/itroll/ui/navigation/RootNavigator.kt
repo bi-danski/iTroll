@@ -9,12 +9,12 @@ import androidx.navigation3.runtime.NavKey
 class RootNavigator {
     private var backStack: NavBackStack<NavKey>? = null
 
-    var currentRoute by mutableStateOf<NavKey>(Cast)
+    var currentRoute by mutableStateOf<NavKey>(Root)
         private set
 
     fun attachBackStack(stack: NavBackStack<NavKey>) {
         this.backStack = stack
-        val top = stack.lastOrNull() ?: Cast
+        val top = stack.lastOrNull() ?: Root
         this.currentRoute = top
     }
 
@@ -29,7 +29,7 @@ class RootNavigator {
     fun popBack() {
         backStack?.let { stack ->
             stack.removeLastOrNull()
-            val top = stack.lastOrNull() ?: Cast
+            val top = stack.lastOrNull() ?: Root
             currentRoute = top
         }
     }

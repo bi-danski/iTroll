@@ -11,15 +11,20 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
+import org.koin.compose.viewmodel.koinViewModel
+import org.me2you.itroll.ui.view.rootview.RootView
+import org.me2you.itroll.vm.RootViewModel
+import org.me2you.itroll.vm.rootViewModelStoreOwner
 
 @Composable
 fun RootNavigation(rootNavigator: RootNavigator, startRoute: NavKey) {
     val rootBackStack = rememberNavBackStack(RootSaveStateConfiguration, startRoute)
-//    val viewModelStoreOwner = rootViewModelStoreOwner()
 
     LaunchedEffect(rootBackStack) {
         rootNavigator.attachBackStack(rootBackStack)
     }
+
+    val rootViewModel = koinViewModel<RootViewModel>(viewModelStoreOwner = rootViewModelStoreOwner())
 
     NavDisplay(
         backStack = rootBackStack,
@@ -38,9 +43,16 @@ fun RootNavigation(rootNavigator: RootNavigator, startRoute: NavKey) {
             slideInHorizontally(initialOffsetX = { -it }) togetherWith slideOutHorizontally(targetOffsetX = { it })
         },
         entryProvider = entryProvider {
-            entry<Cast> { }
+            entry<Cast> {
 
-            entry<Notification> { }
+            }
+
+            entry<Root> {
+                RootView(
+                    rootNavigator = rootNavigator,
+                    rootViewModel = rootViewModel
+                )
+            }
 
             entry<Player> { }
         }
