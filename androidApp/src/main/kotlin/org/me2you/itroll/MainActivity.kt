@@ -13,7 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.OptIn
 import androidx.media3.common.util.UnstableApi
 import org.me2you.itroll.root.mock.MockRootData
-import org.me2you.itroll.root.view.RootView
+import org.me2you.itroll.ui.view.rootview.RootView
 import org.me2you.itroll.ui.theme.iTrollTheme
 
 class MainActivity : ComponentActivity() {

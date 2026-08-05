@@ -17,11 +17,12 @@ object MockRootData {
             CastDeviceUi(Uuid.generateV7().toHexString(), "192.168.126.237", CastDeviceKind.TV),
             CastDeviceUi(Uuid.generateV7().toHexString(), "192.168.126.192", CastDeviceKind.SPEAKER),
             CastDeviceUi(Uuid.generateV7().toHexString(), "192.168.126.7", CastDeviceKind.LAPTOP),
-        ),
+        ).shuffled(),
         nowPlaying = NowPlayingUi(
-            title = "Midnight echoes",
-            subtitle = "Paused · 02:14 / 03:40",
+            title = "Party Tonight - Demarco",
+            subtitle = "Paused · 02:14 / 03:06",
             isPlaying = false,
         ),
     )
 }
+

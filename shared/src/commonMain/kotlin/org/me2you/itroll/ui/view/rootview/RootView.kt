@@ -1,4 +1,4 @@
-package org.me2you.itroll.root.view
+package org.me2you.itroll.ui.view.rootview
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -13,11 +13,11 @@ import androidx.compose.ui.unit.dp
 import org.me2you.itroll.root.mock.MockRootData
 import org.me2you.itroll.root.state.CastDeviceUi
 import org.me2you.itroll.root.state.RootUiState
-import org.me2you.itroll.root.view.components.ConnStatusBanner
-import org.me2you.itroll.root.view.components.RootCastCard
-import org.me2you.itroll.root.view.components.RootHeader
-import org.me2you.itroll.root.view.components.RootPlayerCard
 import org.me2you.itroll.ui.theme.iTrollTheme
+import org.me2you.itroll.ui.view.rootview.components.ConnStatusBanner
+import org.me2you.itroll.ui.view.rootview.components.RootCastCard
+import org.me2you.itroll.ui.view.rootview.components.RootHeader
+import org.me2you.itroll.ui.view.rootview.components.RootPlayerCard
 
 @Composable
 fun RootView(
@@ -56,7 +56,7 @@ fun RootView(
 
             Spacer(Modifier.height(18.dp))
             RootPlayerCard(
-                nowPlaying = uiState.nowPlaying,
+                rootUiState = uiState,
                 onCardClick = onPlayerCardClick,
                 onPlayPauseClick = onPlayPauseClick,
                 onSkipNextClick = onSkipNextClick,

@@ -1,4 +1,4 @@
-package org.me2you.itroll.root.view.components
+package org.me2you.itroll.ui.view.rootview.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -15,7 +15,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.me2you.itroll.root.mock.MockRootData
+import org.me2you.itroll.ui.theme.iTrollTheme
 
 @Composable
 fun ConnStatusBanner(deviceName: String) {
@@ -43,5 +46,13 @@ fun ConnStatusBanner(deviceName: String) {
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
             )
         }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewConnStatusBanner(){
+    iTrollTheme {
+        ConnStatusBanner(MockRootData.rootUiState.recentDevices.first().name)
     }
 }

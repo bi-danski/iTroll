@@ -1,4 +1,4 @@
-package org.me2you.itroll.cast.view.components
+package org.me2you.itroll.ui.view.castview.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
@@ -58,7 +58,7 @@ fun CastDeviceItem(device: CastDeviceUi, onConnectClick: () -> Unit) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = device.name,
-                    style = MaterialTheme.typography.bodyLarge,
+                    style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.SemiBold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -66,12 +66,13 @@ fun CastDeviceItem(device: CastDeviceUi, onConnectClick: () -> Unit) {
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = device.kind.name,
-                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
+                    style = MaterialTheme.typography.bodySmall,
+                    fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    text = "ID: ${device.id}",
+                    text = device.id,//"ID: ${device.id}",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,

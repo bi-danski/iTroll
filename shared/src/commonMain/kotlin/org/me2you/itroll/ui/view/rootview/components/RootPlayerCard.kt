@@ -1,4 +1,4 @@
-package org.me2you.itroll.root.view.components
+package org.me2you.itroll.ui.view.rootview.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CastConnected
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Devices
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
@@ -32,12 +34,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.me2you.itroll.root.mock.MockRootData
-import org.me2you.itroll.root.state.NowPlayingUi
+import org.me2you.itroll.root.state.RootUiState
+import org.me2you.itroll.root.utils.toIcon
 import org.me2you.itroll.ui.theme.iTrollTheme
 
 @Composable
 fun RootPlayerCard(
-    nowPlaying: NowPlayingUi?,
+    rootUiState: RootUiState?,
     onCardClick: () -> Unit,
     onPlayPauseClick: () -> Unit,
     onSkipNextClick: () -> Unit,
@@ -69,17 +72,41 @@ fun RootPlayerCard(
 
             Spacer(Modifier.height(12.dp))
             Text(
-                text = "Player",
+                text = "Cast", // 2 Devices",
                 style = MaterialTheme.typography.titleLarge
             )
             Spacer(Modifier.height(2.dp))
             Text(
-                text = "Now playing and local queue",
+                text = "Now playing",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
 
-            if (nowPlaying != null) {
+            Row(
+                modifier = Modifier.padding(horizontal = 0.dp, vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.CastConnected,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                    modifier = Modifier.size(16.dp),
+                )
+                Icon(imageVector = rootUiState?.recentDevices?.first()?.kind?.toIcon() ?: Icons.Filled.Devices,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp),
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer
+                )
+                Text(
+                    text = rootUiState?.recentDevices?.first()?.name ?: "unknown",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
+            }
+
+
+            if (rootUiState?.nowPlaying != null) {
                 Spacer(Modifier.height(12.dp))
                 Surface(
                     shape = RoundedCornerShape(14.dp),
@@ -105,13 +132,14 @@ fun RootPlayerCard(
                             Spacer(Modifier.width(10.dp))
                             Column {
                                 Text(
-                                    text = nowPlaying.title,
+                                    text = rootUiState.nowPlaying.title,
                                     style = MaterialTheme.typography.labelLarge,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis,
                                 )
+                                Spacer(Modifier.height(2.dp))
                                 Text(
-                                    text = nowPlaying.subtitle,
+                                    text = rootUiState.nowPlaying.subtitle,
                                     style = MaterialTheme.typography.labelSmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 )
@@ -132,8 +160,8 @@ fun RootPlayerCard(
                             Spacer(Modifier.width(12.dp))
                             IconButton(onClick = onPlayPauseClick) {
                                 Icon(
-                                    imageVector = if (nowPlaying.isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
-                                    contentDescription = if (nowPlaying.isPlaying) "Pause" else "Play",
+                                    imageVector = if (rootUiState.nowPlaying.isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
+                                    contentDescription = if (rootUiState.nowPlaying.isPlaying) "Pause" else "Play",
                                     tint = MaterialTheme.colorScheme.primary,
                                 )
                             }
@@ -154,7 +182,7 @@ fun RootPlayerCard(
 fun PreviewRootPlayerCard(){
     iTrollTheme {
         RootPlayerCard(
-            MockRootData.rootUiState.nowPlaying,
+            MockRootData.rootUiState,
             {},
             {},
             {},

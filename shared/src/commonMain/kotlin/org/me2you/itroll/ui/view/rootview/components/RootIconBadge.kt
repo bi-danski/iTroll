@@ -1,4 +1,4 @@
-package org.me2you.itroll.root.view.components
+package org.me2you.itroll.ui.view.rootview.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size

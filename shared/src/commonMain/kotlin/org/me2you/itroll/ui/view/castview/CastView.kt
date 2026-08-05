@@ -1,4 +1,4 @@
-package org.me2you.itroll.cast.view
+package org.me2you.itroll.ui.view.castview
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,11 +20,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.me2you.itroll.cast.view.components.CastDeviceItem
-import org.me2you.itroll.cast.view.components.NoCastDevice
 import org.me2you.itroll.root.mock.MockRootData
 import org.me2you.itroll.root.state.CastDeviceUi
 import org.me2you.itroll.ui.theme.iTrollTheme
+import org.me2you.itroll.ui.view.castview.components.CastDeviceItem
+import org.me2you.itroll.ui.view.castview.components.NoCastDevice
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -1,5 +1,6 @@
-package org.me2you.itroll.root.view.components
+package org.me2you.itroll.ui.view.rootview.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -67,17 +68,19 @@ fun RootCastCard(
                     horizontalAlignment = Alignment.End,
                     verticalArrangement = Arrangement.Top
                 ) {
-                    Row { //(horizontalArrangement = Arrangement.spacedBy(3.dp)) {
+                    Row {
                         Icon(
                             modifier = Modifier
-//                                .size(18.dp)
-                                .padding(10.dp),
+                                .clickable(onClick = {})
+                                .padding(4.dp),
                             imageVector = Icons.Filled.Refresh,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                            contentDescription = "Refresh Devices",
+                            tint = MaterialTheme.colorScheme.tertiary.copy(0.5f)
                         )
                         Icon(
-                            modifier = Modifier.padding(10.dp),
+                            modifier = Modifier
+                                .clickable(onClick = {})
+                                .padding(4.dp),
                             imageVector = Icons.Filled.ChevronRight,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -86,29 +89,28 @@ fun RootCastCard(
                     if (availableDeviceCount > 0) {
                         Surface(
                             shape = RoundedCornerShape(20.dp),
-                            color = Blue600.copy(0.05f), //MaterialTheme.colorScheme.tertiaryContainer,
+                            color = Blue600.copy(0.05f),
                         ) {
                             Text(
                                 text = "$availableDeviceCount Available",
                                 style = MaterialTheme.typography.labelSmall,
                                 fontWeight = FontWeight.SemiBold,
-                                color = Green600, //MaterialTheme.colorScheme.onTertiaryContainer,
+                                color = Green600,
                                 modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
                             )
                         }
-
                     }
                 }
             }
 
             Spacer(Modifier.height(8.dp))
             Text(
-                text = "Cast",
+                text = "Discover",
                 style = MaterialTheme.typography.titleLarge
             )
             Spacer(Modifier.height(2.dp))
             Text(
-                text = "Find and connect to nearby devices",
+                text = "Find and connect to devices",
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -138,9 +140,6 @@ fun RootCastCard(
                     )
                 }
             }
-//            Spacer(Modifier.height(6.dp))
-
-
         }
     }
 }
