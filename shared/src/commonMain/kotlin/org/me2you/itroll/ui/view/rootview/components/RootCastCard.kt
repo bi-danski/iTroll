@@ -9,11 +9,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cast
-import androidx.compose.material.icons.filled.Scanner
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -27,9 +27,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import itroll.shared.generated.resources.Res
+import itroll.shared.generated.resources.ic_device_scan
+import itroll.shared.generated.resources.ic_refresh
+import org.jetbrains.compose.resources.painterResource
 import org.me2you.itroll.cast.mock.MockRootData
 import org.me2you.itroll.cast.state.CastDeviceUi
 import org.me2you.itroll.ui.theme.Blue600
@@ -38,7 +43,6 @@ import org.me2you.itroll.ui.theme.iTrollTheme
 
 @Composable
 fun RootCastCard(
-    availableDeviceCount: Int,
     recentDevices: List<CastDeviceUi>,
     onCardClick: () -> Unit,
     onQuickConnectClick: (CastDeviceUi) -> Unit,
@@ -69,23 +73,49 @@ fun RootCastCard(
                     horizontalAlignment = Alignment.End,
                     verticalArrangement = Arrangement.Top
                 ) {
-                    Row {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (recentDevices.isNotEmpty()) {
+                            Icon(
+                                modifier = Modifier
+                                    .clickable(onClick = {})
+                                    .size(28.dp)
+                                    .padding(4.dp),
+                                painter = painterResource(Res.drawable.ic_refresh),
+                                contentDescription = null,
+                                tint = Color.Unspecified
+                            )
+                        } else {
+                            Icon(
+                                modifier = Modifier
+                                    .size(28.dp)
+                                    .padding(4.dp),
+                                painter = painterResource(Res.drawable.ic_refresh),
+                                contentDescription = null,
+                                tint = Color.Unspecified
+                            )
+                        }
+
                         Icon(
                             modifier = Modifier
                                 .clickable(onClick = {})
+                                .size(30.dp)
                                 .padding(4.dp),
-                            imageVector = Icons.Filled.Scanner,
+                            painter = painterResource(Res.drawable.ic_device_scan),
                             contentDescription = null,
-                            tint = MaterialTheme.colorScheme.tertiary.copy(0.5f)
+                            tint = Color.Unspecified
                         )
                     }
-                    if (availableDeviceCount > 0) {
+
+                    if (recentDevices.isNotEmpty()) {
                         Surface(
                             shape = RoundedCornerShape(20.dp),
-                            color = Blue600.copy(0.05f),
+                            color = Blue600.copy(0.09f),
                         ) {
                             Text(
-                                text = "$availableDeviceCount Available",
+                                text = "${recentDevices.size} Found",
                                 style = MaterialTheme.typography.labelSmall,
                                 fontWeight = FontWeight.SemiBold,
                                 color = Green600,
@@ -132,6 +162,15 @@ fun RootCastCard(
                         onConnectClick = { onQuickConnectClick(device) },
                     )
                 }
+            } else {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Text(text="Press the Scan to discover devices")
+                }
             }
         }
     }
@@ -143,7 +182,7 @@ fun RootCastCard(
 fun PreviewRootCastCard(){
     iTrollTheme {
         RootCastCard(
-            MockRootData.castUiState.availableDeviceCount,
+//            emptyList<CastDeviceUi>(),
             MockRootData.castUiState.recentDevices,
             {},
             {}

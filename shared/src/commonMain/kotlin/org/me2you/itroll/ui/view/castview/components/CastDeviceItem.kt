@@ -75,6 +75,20 @@ fun CastDeviceItem(device: CastDeviceUi, onConnectClick: () -> Unit) {
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
+                        text = device.ipAddress.toString(),
+                        style = MaterialTheme.typography.bodySmall,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = device.description.toString(),
+                        style = MaterialTheme.typography.bodySmall,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
                         text = device.id,
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -122,6 +136,6 @@ fun CastDeviceItem(device: CastDeviceUi, onConnectClick: () -> Unit) {
 @Composable
 fun PreviewCastDeviceItem() {
     iTrollTheme {
-        CastDeviceItem(MockRootData.castUiState.recentDevices.first(), {})
+        CastDeviceItem(MockRootData.castUiState.recentDevices.first()) {}
     }
 }

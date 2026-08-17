@@ -7,6 +7,7 @@ import org.me2you.itroll.ui.navigation.RootNavigation
 import org.me2you.itroll.ui.navigation.RootNavigator
 import org.me2you.itroll.ui.theme.iTrollTheme
 
+@Suppress("unused")
 fun MainViewController() = ComposeUIViewController {
     val rootNavigator: RootNavigator = koinInject<RootNavigator>()
 

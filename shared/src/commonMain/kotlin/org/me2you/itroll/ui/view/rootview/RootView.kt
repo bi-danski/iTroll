@@ -40,7 +40,6 @@ fun RootView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
 
             Spacer(Modifier.height(18.dp))
             RootCastCard(
-                availableDeviceCount = rootUiState.availableDeviceCount,
                 recentDevices = rootUiState.recentDevices,
                 onCardClick = { rootNavigator.navigateTo(Cast) },
                 onQuickConnectClick = { rootViewModel.onQuickConnectClick(castDevice = it) },
