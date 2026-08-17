@@ -42,6 +42,6 @@ Run from the project root directory to install the iOS dependencies:
 
 ### Running the Apps
 - **Android**: Select `androidApp` in the run configurations and click Run.
-- **iOS**: Then open the `.xcworkspace` or the iosApp directory in Xcode and deploy to a **physical device**.
+- **iOS**: Open the `.xcworkspace` or the iosApp directory in Xcode and deploy to a **physical device**.
 
 **Note**:  Chromecast discovery and AirPlay will only function on physical hardware connected to the same network as your casting devices.
