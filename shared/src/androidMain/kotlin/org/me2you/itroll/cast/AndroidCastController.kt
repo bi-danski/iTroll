@@ -82,7 +82,7 @@ class AndroidCastController(private val context: Context) : CastController {
     }
 
     init {
-        castContext?.sessionManager?.addSessionManagerListener(sessionManagerListener, CastSession::class.java)
+        castContext.sessionManager.addSessionManagerListener(sessionManagerListener, CastSession::class.java)
         castPlayer.addListener(object : Player.Listener {
             override fun onIsPlayingChanged(isPlaying: Boolean) {
                 _isPlaying.value = isPlaying

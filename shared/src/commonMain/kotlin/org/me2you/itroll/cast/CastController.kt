@@ -14,7 +14,6 @@ interface CastController {
     fun connectToDevice(device: CastDeviceUi)
     fun disconnect()
     
-    // Media control
     fun play()
     fun pause()
     fun stop()
