@@ -94,10 +94,10 @@ class IosCastController : CastController {
             val count = discoveryManager?.deviceCount ?: 0uL
             var targetDevice: GCKDevice? = null
 
-            for (i in 0uL until count) {
-                val d = discoveryManager?.deviceAtIndex(i)
-                if (d?.deviceID == device.id) {
-                    targetDevice = d
+            for (idx in 0uL until count) {
+                val dVice = discoveryManager?.deviceAtIndex(idx)
+                if (dVice?.deviceID == device.id) {
+                    targetDevice = dVice
                     break
                 }
             }
