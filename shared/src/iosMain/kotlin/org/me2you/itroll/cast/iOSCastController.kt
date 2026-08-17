@@ -25,8 +25,9 @@ import org.me2you.itroll.cast.state.CastDeviceUi
 import platform.Foundation.NSError
 import platform.darwin.NSObject
 
+@Suppress("className")
 @OptIn(ExperimentalForeignApi::class)
-class IosCastController : CastController {
+class iOSCastController : CastController {
 
     private val castContext: GCKCastContext? by lazy { 
         try { GCKCastContext.sharedInstance() } catch (_: Exception) { null }
@@ -155,7 +156,7 @@ class IosCastController : CastController {
             if (device != null) {
                 devices.add(
                     CastDeviceUi(
-                        id = device.deviceID ?: i.toString(),
+                        id = device.deviceID,
                         name = device.friendlyName ?: "Chromecast",
                         kind = when {
                             device.hasCapabilities(GCKDeviceCapabilityVideoOut) -> CastDeviceKind.TV
