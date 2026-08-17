@@ -1,0 +1,27 @@
+PODS:
+  - google-cast-sdk (4.8.3):
+    - Protobuf (~> 3.13)
+  - Protobuf (3.29.6)
+  - shared (1.0):
+    - google-cast-sdk
+
+DEPENDENCIES:
+  - shared (from `../shared`)
+
+SPEC REPOS:
+  trunk:
+    - google-cast-sdk
+    - Protobuf
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "../shared"
+
+SPEC CHECKSUMS:
+  google-cast-sdk: 1fb6724e94cc5ff23b359176e0cf6360586bb97a
+  Protobuf: 8d5596f7468be5400861a6bbfb2dfe9d0d1cde34
+  shared: 9d7b601ae013c534a2c2153c555c902f37ab1182
+
+PODFILE CHECKSUM: cb976e7e275a85ac0f87a2394c4de9268ead2adf
+
+COCOAPODS: 1.17.0
