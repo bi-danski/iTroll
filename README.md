@@ -5,8 +5,6 @@ iTroll is a Multiplatform application designed for seamless media casting to a w
 This application features deep native media integration by leveraging AndroidX Media3 and CastPlayer on Android alongside the official Google Cast iOS SDK and AVKit/MediaPlayer on iOS.
 It delivers a modern Material 3 experience with a unified UI that seamlessly lists both Chromecasts via the Google Cast SDK and Apple products via native AirPlay.
 
-[//]: # (Built for high-performance multi-device media experiences.)
-
 
 ## Tech Stack
 - **Language**: Kotlin
@@ -23,7 +21,7 @@ It delivers a modern Material 3 experience with a unified UI that seamlessly lis
     - `androidMain/`: Android-specific implementation using Media3.
     - `iosMain/`: iOS-specific implementation and AirPlay picker interop.
 
-[//]: # (## Setup Instructions)
+## Setup Instructions
 ### 1. Prerequisites
 - **Android Studio** with the Kotlin Multiplatform plugin.
 - **Xcode** (for iOS development).
