@@ -7,6 +7,7 @@ import org.me2you.itroll.vm.RootViewModel
 
 object KoinModule {
     val koinModules = module {
+        includes(platformModule)
         single(createdAtStart = false) { RootNavigator() }
 
         viewModelOf(::RootViewModel)

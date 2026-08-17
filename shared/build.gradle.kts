@@ -6,14 +6,22 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.kotlinCocoapods)
 }
 
 kotlin {
-    listOf(
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
+    iosArm64()
+    iosSimulatorArm64()
+
+    cocoapods {
+        summary = "Shared module for iTroll"
+        homepage = "https://github.com/me2you/itroll"
+        version = "1.0"
+        ios.deploymentTarget = "14.1"
+        pod("google-cast-sdk") {
+            moduleName = "GoogleCast"
+        }
+        framework {
             baseName = "Shared"
             isStatic = true
             binaryOption("bundleId", "org.me2you.shared")

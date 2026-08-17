@@ -4,5 +4,6 @@ enum class CastDeviceKind {
     TV,
     SPEAKER,
     LAPTOP,
+    AIRPLAY,
     OTHER
 }

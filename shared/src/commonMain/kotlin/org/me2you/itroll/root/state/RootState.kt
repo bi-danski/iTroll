@@ -4,6 +4,11 @@ data class CastDeviceUi(
     val id: String,
     val name: String,
     val kind: CastDeviceKind,
+    val description: String? = null,
+    val modelName: String? = null,
+    val status: String? = null,
+    val iconUrl: String? = null,
+    val ipAddress: String? = null,
 )
 
 data class NowPlayingUi(
