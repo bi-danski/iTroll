@@ -88,7 +88,7 @@ class IosCastController : CastController {
 
     override fun connectToDevice(device: CastDeviceUi) {
         if (device.kind == CastDeviceKind.AIRPLAY) {
-            // AirPlay handled by UI
+            // AirPlay
         } else {
             val discoveryManager = castContext?.discoveryManager
             val count = discoveryManager?.deviceCount ?: 0uL
