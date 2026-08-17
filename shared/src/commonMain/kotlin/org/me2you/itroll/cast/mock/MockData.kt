@@ -1,9 +1,9 @@
-package org.me2you.itroll.root.mock
+package org.me2you.itroll.cast.mock
 
-import org.me2you.itroll.root.state.CastDeviceKind
-import org.me2you.itroll.root.state.CastDeviceUi
-import org.me2you.itroll.root.state.NowPlayingUi
-import org.me2you.itroll.root.state.RootUiState
+import org.me2you.itroll.cast.state.CastDeviceKind
+import org.me2you.itroll.cast.state.CastDeviceUi
+import org.me2you.itroll.cast.state.CastUiState
+import org.me2you.itroll.cast.state.NowPlayingUi
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
@@ -41,7 +41,7 @@ object MockRootData {
         ),
     )
 
-    val rootUiState = RootUiState(
+    val castUiState = CastUiState(
         isConnected = false,
         connectedDeviceName = "192.168.126.7",
         availableDeviceCount = 3,

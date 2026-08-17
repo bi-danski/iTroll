@@ -17,7 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.me2you.itroll.root.mock.MockRootData
+import org.me2you.itroll.cast.mock.MockRootData
 import org.me2you.itroll.ui.theme.iTrollTheme
 
 @Composable
@@ -53,6 +53,6 @@ fun ConnStatusBanner(deviceName: String) {
 @Composable
 fun PreviewConnStatusBanner(){
     iTrollTheme {
-        ConnStatusBanner(MockRootData.rootUiState.recentDevices.first().name)
+        ConnStatusBanner(MockRootData.castUiState.recentDevices.first().name)
     }
 }

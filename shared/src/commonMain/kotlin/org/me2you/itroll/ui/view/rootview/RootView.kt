@@ -22,7 +22,7 @@ import org.me2you.itroll.vm.RootViewModel
 
 @Composable
 fun RootView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
-    val rootUiState by rootViewModel.rootUiState.collectAsStateWithLifecycle()
+    val rootUiState by rootViewModel.castUiState.collectAsStateWithLifecycle()
 
     Scaffold(modifier = Modifier) { innerPadding ->
         Column(
@@ -48,7 +48,7 @@ fun RootView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
 
             Spacer(Modifier.height(18.dp))
             RootPlayerCard(
-                rootUiState = rootUiState,
+                castUiState = rootUiState,
                 onCardClick = { rootNavigator.navigateTo(Player) },
                 onPlayPauseClick = { rootViewModel.onPlayPauseClick() },
                 onSkipNextClick = { rootViewModel.onSkipNextClick() },

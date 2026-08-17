@@ -30,7 +30,7 @@ import org.me2you.itroll.vm.RootViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CastView(rootNavigator: RootNavigator, rootViewModel: RootViewModel) {
-    val rootUiState by rootViewModel.rootUiState.collectAsStateWithLifecycle()
+    val rootUiState by rootViewModel.castUiState.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {

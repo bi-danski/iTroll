@@ -25,7 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import org.me2you.itroll.root.state.CastDeviceUi
+import org.me2you.itroll.cast.state.CastDeviceUi
 
 @Composable
 fun RootCastDetail(device: CastDeviceUi, onConnectClick: () -> Unit) {

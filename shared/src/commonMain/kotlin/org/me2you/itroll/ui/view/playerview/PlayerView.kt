@@ -17,7 +17,7 @@ import org.me2you.itroll.vm.RootViewModel
 
 @Composable
 fun PlayerView(rootNavigator: RootNavigator, rootViewModel: RootViewModel){
-    val rootUiState by rootViewModel.rootUiState.collectAsStateWithLifecycle()
+    val rootUiState by rootViewModel.castUiState.collectAsStateWithLifecycle()
 
     Scaffold(
         topBar = {

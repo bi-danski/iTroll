@@ -16,9 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.me2you.itroll.root.mock.MockRootData
-import org.me2you.itroll.root.state.CastDeviceUi
-import org.me2you.itroll.root.utils.toIcon
+import org.me2you.itroll.cast.mock.MockRootData
+import org.me2you.itroll.cast.state.CastDeviceUi
+import org.me2you.itroll.cast.utils.toIcon
 import org.me2you.itroll.ui.theme.iTrollTheme
 
 @Composable
@@ -59,6 +59,6 @@ fun ConnectChip(device: CastDeviceUi, selected: Boolean = false, onConnect: () -
 @Composable
 fun PreviewConnectChip(){
     iTrollTheme {
-        ConnectChip(MockRootData.rootUiState.recentDevices.first(), onConnect = {})
+        ConnectChip(MockRootData.castUiState.recentDevices.first(), onConnect = {})
     }
 }

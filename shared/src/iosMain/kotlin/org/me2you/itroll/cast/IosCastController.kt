@@ -19,9 +19,9 @@ import kotlinx.cinterop.ObjCSignatureOverride
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import org.me2you.itroll.root.mock.MockRootData
-import org.me2you.itroll.root.state.CastDeviceKind
-import org.me2you.itroll.root.state.CastDeviceUi
+import org.me2you.itroll.cast.mock.MockRootData
+import org.me2you.itroll.cast.state.CastDeviceKind
+import org.me2you.itroll.cast.state.CastDeviceUi
 import platform.Foundation.NSError
 import platform.darwin.NSObject
 

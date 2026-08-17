@@ -1,4 +1,4 @@
-package org.me2you.itroll.root.state
+package org.me2you.itroll.cast.state
 
 enum class CastDeviceKind {
     TV,

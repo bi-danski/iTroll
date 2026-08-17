@@ -17,8 +17,8 @@ import com.google.android.gms.cast.framework.SessionManagerListener
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import org.me2you.itroll.root.state.CastDeviceKind
-import org.me2you.itroll.root.state.CastDeviceUi
+import org.me2you.itroll.cast.state.CastDeviceKind
+import org.me2you.itroll.cast.state.CastDeviceUi
 
 @OptIn(UnstableApi::class)
 class AndroidCastController(private val context: Context) : CastController {

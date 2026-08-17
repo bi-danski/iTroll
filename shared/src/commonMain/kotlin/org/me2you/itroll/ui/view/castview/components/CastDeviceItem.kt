@@ -28,9 +28,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.me2you.itroll.root.mock.MockRootData
-import org.me2you.itroll.root.state.CastDeviceUi
-import org.me2you.itroll.root.utils.toIcon
+import org.me2you.itroll.cast.mock.MockRootData
+import org.me2you.itroll.cast.state.CastDeviceUi
+import org.me2you.itroll.cast.utils.toIcon
 import org.me2you.itroll.ui.theme.iTrollTheme
 
 @Composable
@@ -121,6 +121,6 @@ fun CastDeviceItem(device: CastDeviceUi, onConnectClick: () -> Unit) {
 @Composable
 fun PreviewCastDeviceItem() {
     iTrollTheme {
-        CastDeviceItem(MockRootData.rootUiState.recentDevices.first(), {})
+        CastDeviceItem(MockRootData.castUiState.recentDevices.first(), {})
     }
 }

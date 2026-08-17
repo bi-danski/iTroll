@@ -1,7 +1,7 @@
 package org.me2you.itroll.cast
 
 import kotlinx.coroutines.flow.StateFlow
-import org.me2you.itroll.root.state.CastDeviceUi
+import org.me2you.itroll.cast.state.CastDeviceUi
 
 interface CastController {
     val availableDevices: StateFlow<List<CastDeviceUi>>

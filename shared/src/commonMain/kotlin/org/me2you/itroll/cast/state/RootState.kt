@@ -1,4 +1,4 @@
-package org.me2you.itroll.root.state
+package org.me2you.itroll.cast.state
 
 data class CastDeviceUi(
     val id: String,
@@ -17,7 +17,7 @@ data class NowPlayingUi(
     val isPlaying: Boolean,
 )
 
-data class RootUiState(
+data class CastUiState(
     val isConnected: Boolean = false,
     val connectedDeviceName: String? = null,
     val availableDeviceCount: Int = 0,

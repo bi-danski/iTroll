@@ -30,8 +30,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.me2you.itroll.root.mock.MockRootData
-import org.me2you.itroll.root.state.CastDeviceUi
+import org.me2you.itroll.cast.mock.MockRootData
+import org.me2you.itroll.cast.state.CastDeviceUi
 import org.me2you.itroll.ui.theme.Blue600
 import org.me2you.itroll.ui.theme.Green600
 import org.me2you.itroll.ui.theme.iTrollTheme
@@ -143,8 +143,8 @@ fun RootCastCard(
 fun PreviewRootCastCard(){
     iTrollTheme {
         RootCastCard(
-            MockRootData.rootUiState.availableDeviceCount,
-            MockRootData.rootUiState.recentDevices,
+            MockRootData.castUiState.availableDeviceCount,
+            MockRootData.castUiState.recentDevices,
             {},
             {}
         )
