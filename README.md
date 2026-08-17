@@ -1,6 +1,6 @@
 # iTroll
 
-iTroll is a Multiplatform application designed for seamless media casting to a wide range of devices i.e Chromecasts, Android TVs, Apple TVs and AirPlay devices across your local network.
+Multiplatform application designed for seamless media casting to a wide range of devices i.e Chromecasts, Android TVs, Apple TVs and AirPlay devices across your local network.
 
 This application features deep native media integration by leveraging AndroidX Media3 and CastPlayer on Android alongside the official Google Cast iOS SDK and AVKit/MediaPlayer on iOS.
 It delivers a modern Material 3 experience with a unified UI that seamlessly lists both Chromecasts via the Google Cast SDK and Apple products via native AirPlay.
