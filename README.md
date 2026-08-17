@@ -1,27 +1,47 @@
-Kotlin Multiplatform project targeting Android, iOS.
+# iTroll
 
-* [/iosApp](./iosApp/iosApp) contains an iOS application. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+iTroll is a Multiplatform application designed for seamless media casting to a wide range of devices i.e Chromecasts, Android TVs, Apple TVs and AirPlay devices across your local network.
 
-* [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./shared/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders code that will be compiled for only the platform indicated in the folder name.
+This application features deep native media integration by leveraging AndroidX Media3 and CastPlayer on Android alongside the official Google Cast iOS SDK and AVKit/MediaPlayer on iOS.
+It delivers a modern Material 3 experience with a unified UI that seamlessly lists both Chromecasts via the Google Cast SDK and Apple products via native AirPlay.
 
-### Running the apps
+[//]: # (Built for high-performance multi-device media experiences.)
 
-Use the run configurations provided by the run widget in your IDE's toolbar. You can also use these commands and options:
 
-- Android app: `./gradlew :androidApp:assembleDebug`
-- iOS app: open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+## Tech Stack
+- **Language**: Kotlin
+- **UI**: Compose Multiplatform
+- **Dependency Injection**: Koin
+- **Casting (Android)**: Media3 Cast
+- **Casting (iOS)**: Google Cast SDK (via CocoaPods) & AirPlay
 
-### Running tests
+## Project Structure
+- `androidApp/`: Native Android application entry point.
+- `iosApp/`: Native iOS application entry point (SwiftUI).
+- `shared/`: Common logic and UI shared between Android and iOS.
+    - `commonMain/`: Shared interfaces, ViewModels and Compose UI.
+    - `androidMain/`: Android-specific implementation using Media3.
+    - `iosMain/`: iOS-specific implementation and AirPlay picker interop.
 
-Use the run button in your IDE's editor gutter, or run tests using Gradle tasks:
+[//]: # (## Setup Instructions)
+### 1. Prerequisites
+- **Android Studio** with the Kotlin Multiplatform plugin.
+- **Xcode** (for iOS development).
+- **CocoaPods**: Required for the iOS Google Cast SDK.
+  ```bash
+  brew install cocoapods
+  ```
 
-- Android tests: `./gradlew :shared:testAndroidHostTest`
-- iOS tests: `./gradlew :shared:iosSimulatorArm64Test`
+### 2. iOS Dependency Installation
+Run from the project root directory to install the iOS dependencies:
+```bash
+./gradlew podInstall
+```
 
----
+[//]: # (## Development)
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+### Running the Apps
+- **Android**: Select `androidApp` in the run configurations and click Run.
+- **iOS**: Then open the `.xcworkspace` or the iosApp directory in Xcode and deploy to a **physical device**.
+
+**Note**:  Chromecast discovery and AirPlay will only function on physical hardware connected to the same network as your casting devices.
