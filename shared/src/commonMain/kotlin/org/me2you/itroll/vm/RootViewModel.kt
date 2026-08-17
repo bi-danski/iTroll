@@ -11,12 +11,10 @@ import kotlinx.coroutines.flow.update
 import org.me2you.itroll.cast.CastController
 import org.me2you.itroll.cast.mock.MockRootData
 import org.me2you.itroll.cast.state.CastDeviceUi
-import org.me2you.itroll.cast.state.NowPlayingUi
 import org.me2you.itroll.cast.state.CastUiState
+import org.me2you.itroll.cast.state.NowPlayingUi
 
-class RootViewModel(
-    private val castController: CastController
-) : ViewModel() {
+class RootViewModel(private val castController: CastController) : ViewModel() {
 
     private val _castUiState: MutableStateFlow<CastUiState> = MutableStateFlow(MockRootData.castUiState)
     val castUiState: StateFlow<CastUiState> = _castUiState.asStateFlow()

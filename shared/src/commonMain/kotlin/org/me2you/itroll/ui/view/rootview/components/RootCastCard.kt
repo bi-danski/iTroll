@@ -13,7 +13,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cast
-import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Scanner
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -74,8 +74,8 @@ fun RootCastCard(
                             modifier = Modifier
                                 .clickable(onClick = {})
                                 .padding(4.dp),
-                            imageVector = Icons.Filled.Refresh,
-                            contentDescription = "Refresh Devices",
+                            imageVector = Icons.Filled.Scanner,
+                            contentDescription = null,
                             tint = MaterialTheme.colorScheme.tertiary.copy(0.5f)
                         )
                     }
