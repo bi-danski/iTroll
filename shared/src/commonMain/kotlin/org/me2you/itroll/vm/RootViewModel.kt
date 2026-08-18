@@ -19,29 +19,29 @@ class RootViewModel(private val castController: CastController) : ViewModel() {
     private val _castUiState: MutableStateFlow<CastUiState> = MutableStateFlow(MockRootData.castUiState)
     val castUiState: StateFlow<CastUiState> = _castUiState.asStateFlow()
 
-    init {
-        castController.startScanning()
-
-        castController.availableDevices.onEach { devices ->
-            _castUiState.update { it.copy(recentDevices = devices, availableDeviceCount = devices.size) }
-        }.launchIn(viewModelScope)
-
-        castController.isConnected.onEach { isConnected ->
-            _castUiState.update { it.copy(isConnected = isConnected) }
-        }.launchIn(viewModelScope)
-
-        castController.connectedDeviceName.onEach { name ->
-            _castUiState.update { it.copy(connectedDeviceName = name) }
-        }.launchIn(viewModelScope)
-
-        castController.isPlaying.onEach { isPlaying ->
-            _castUiState.update { state ->
-                state.copy(
-                    nowPlaying = state.nowPlaying?.copy(isPlaying = isPlaying)
-                )
-            }
-        }.launchIn(viewModelScope)
-    }
+//    init {
+//        castController.startScanning()
+//
+//        castController.availableDevices.onEach { devices ->
+//            _castUiState.update { it.copy(recentDevices = devices, availableDeviceCount = devices.size) }
+//        }.launchIn(viewModelScope)
+//
+//        castController.isConnected.onEach { isConnected ->
+//            _castUiState.update { it.copy(isConnected = isConnected) }
+//        }.launchIn(viewModelScope)
+//
+//        castController.connectedDeviceName.onEach { name ->
+//            _castUiState.update { it.copy(connectedDeviceName = name) }
+//        }.launchIn(viewModelScope)
+//
+//        castController.isPlaying.onEach { isPlaying ->
+//            _castUiState.update { state ->
+//                state.copy(
+//                    nowPlaying = state.nowPlaying?.copy(isPlaying = isPlaying)
+//                )
+//            }
+//        }.launchIn(viewModelScope)
+//    }
 
     override fun onCleared() {
         super.onCleared()

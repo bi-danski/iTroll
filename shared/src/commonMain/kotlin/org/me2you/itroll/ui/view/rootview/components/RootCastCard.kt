@@ -182,7 +182,6 @@ fun RootCastCard(
 fun PreviewRootCastCard(){
     iTrollTheme {
         RootCastCard(
-//            emptyList<CastDeviceUi>(),
             MockRootData.castUiState.recentDevices,
             {},
             {}
